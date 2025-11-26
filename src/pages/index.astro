@@ -1,11 +1,40 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// import Text from "$components/Text.svelte";
+import Button from "$components/Button.svelte";
+import Header from "$components/Header.astro";
+import BaseLayout from "$layouts/BaseLayout.astro";
+// import { Drawer } from "$lib/components/ui/drawer";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <Header />
+  <main>
+    <div
+      class="grid min-h-screen w-full bg-cover bg-center"
+      style="background-image: url(https://imagescdn.homes.com/i2/CEji7IWNBAkZ0oR6Ys2M4_qKV1NXED2iubcrhIUqjAw/116/albert-lea-mn-9.jpg?p=1)"
+    >
+      <!-- Overlay Div -->
+      <div class="bg-muted col-start-1 row-start-1 h-full w-full opacity-85">
+      </div>
+      <div class="layout-base isolate col-start-1 row-start-1 gap-y-8">
+        <h2 class="style-display-xl">
+          <span class="opacity-40">We exist to be and make</span>
+          <br />
+          <span class="text-primary">eternally joyful disciples</span>
+          <br />
+          <span class="opacity-40"> of Jesus Christ. </span>
+        </h2>
+        <!-- <Drawer client:load /> -->
+        <!-- TODO: Make button take class info -->
+        <!-- TODO: Rewrite Text Component as span wrapper? -->
+        <Button
+          variant="accent"
+          href="#"
+          class={"text-xs tracking-widest uppercase sm:text-sm whitespace-normal h-full text-center font-semibold"}
+        >
+          10 am Sundays at the Skyline Plaza | Click here for livestream
+        </Button>
+      </div>
+    </div>
+  </main>
+</BaseLayout>

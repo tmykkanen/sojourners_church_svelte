@@ -1,0 +1,22 @@
+---
+import { Hamburger } from "svelte-hamburgers";
+import Button from "$components/Button.svelte";
+import Drawer from "$components/Drawer.svelte";
+import HamburgerIcon from "$components/HamburgerIcon.astro";
+import Text from "$components/Text.svelte";
+---
+
+<header class="layout-full">
+  <nav class="flex w-full items-center">
+    <h1 class="style-display flex-1">
+      <a href="/">Sojourners <br class="hidden md:inline" /> Church</a>
+    </h1>
+
+    <Drawer client:load />
+
+    <!-- TODO: FIX HAMBURGER BUTTON -->
+    <!-- <Button
+      onclick="document.dispatchEvent(new CustomEvent('basecoat:sidebar'))"
+    /> -->
+  </nav>
+</header>
