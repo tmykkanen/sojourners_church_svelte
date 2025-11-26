@@ -185,6 +185,11 @@
 }
 
 /* CUSTOM */
+@layer base {
+  :root {
+    scrollbar-color: var(--muted-foreground) var(--muted);
+  }
+}
 
 @theme {
   /* --color-base-100: oklch(27% 0.041 260.031);
