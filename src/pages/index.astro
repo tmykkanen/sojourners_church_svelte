@@ -1,9 +1,8 @@
 ---
-// import Text from "$components/Text.svelte";
 import Button from "$components/Button.svelte";
+import Footer from "$components/Footer.astro";
 import Header from "$components/Header.astro";
 import BaseLayout from "$layouts/BaseLayout.astro";
-// import { Drawer } from "$lib/components/ui/drawer";
 ---
 
 <BaseLayout>
@@ -24,9 +23,6 @@ import BaseLayout from "$layouts/BaseLayout.astro";
           <br />
           <span class="opacity-40"> of Jesus Christ. </span>
         </h2>
-        <!-- <Drawer client:load /> -->
-        <!-- TODO: Make button take class info -->
-        <!-- TODO: Rewrite Text Component as span wrapper? -->
         <Button
           variant="accent"
           href="#"
@@ -37,4 +33,5 @@ import BaseLayout from "$layouts/BaseLayout.astro";
       </div>
     </div>
   </main>
+  <Footer />
 </BaseLayout>

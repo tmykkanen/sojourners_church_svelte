@@ -1,0 +1,49 @@
+---
+import { Icon } from "astro-icon/components";
+import Button from "$components/Button.svelte";
+import SubscribeForm from "$components/SubscribeForm/SubscribeForm.svelte";
+---
+
+<footer class="bg-accent text-accent-foreground layout-base py-8">
+  <div class="grid gap-4 lg:grid-cols-3">
+    <section class="flex flex-col gap-2">
+      <h2 class="sr-only">Address & Contact Info</h2>
+      <h3 class="style-heading">Sundays at 10am</h3>
+      <address>
+        1679 West Main Street <br />
+        Skyline Plaza <br />
+        Albert Lea, MN 56007
+      </address>
+      <h3 class="style-heading">Contact Us</h3>
+      <address>
+        <a href="mailto:hello@sojourners.church">hello@sojourners.church</a>
+        <br />
+        (507) 552-1595
+      </address>
+      <!-- TODO: Icons -->
+      <div class="flex gap-2 text-2xl">
+        <a href="#"><Icon name={"mdi:facebook"} /></a>
+        <a href="#"><Icon name={"mdi:youtube"} /></a>
+        <a href="#"><Icon name={"mdi:spotify"} /></a>
+        <a href="#"><Icon name={"mdi:whatsapp"} /></a>
+      </div>
+    </section>
+    <section class="flex flex-col gap-2">
+      <h2 class="style-heading">Weekly Bulletin</h2>
+      <p>
+        Sign up to stay informed and connected to Sojourners Church weekly
+        happenings.
+      </p>
+      <!-- TODO: Form -->
+      <SubscribeForm client:load />
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <h2 class="style-heading">Give to Sojourners</h2>
+      <p>
+        Click below to set up a one time or recurring gift to Sojourners Church.
+      </p>
+      <Button variant="outlineFooter">Give</Button>
+    </section>
+  </div>
+</footer>
