@@ -1,49 +1,61 @@
 ---
 import { Icon } from "astro-icon/components";
+import { superValidate } from "sveltekit-superforms";
+import { zod } from "sveltekit-superforms/adapters";
 import Button from "$components/Button.svelte";
-// import SubscribeForm from "$components/SubscribeForm/SubscribeForm.svelte";
+import SubscribeForm from "$components/SubscribeForm/SubscribeForm.svelte";
+import { zNewsletterValues } from "$components/SubscribeForm/schema";
+
+// biome-ignore lint/suspicious/noExplicitAny: Not correctly detecting ZodObjectType
+const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
 ---
 
-<footer class="bg-accent text-accent-foreground layout-base py-8">
-  <div class="grid gap-4 lg:grid-cols-3">
-    <section class="flex flex-col gap-2">
+<footer class="bg-accent text-accent-foreground layout-base py-8 ">
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+    <section class="flex flex-col gap-8">
       <h2 class="sr-only">Address & Contact Info</h2>
-      <h3 class="style-heading">Sundays at 10am</h3>
-      <address>
-        1679 West Main Street <br />
-        Skyline Plaza <br />
-        Albert Lea, MN 56007
-      </address>
-      <h3 class="style-heading">Contact Us</h3>
-      <address>
-        <a href="mailto:hello@sojourners.church">hello@sojourners.church</a>
-        <br />
-        (507) 552-1595
-      </address>
-      <!-- TODO: Icons -->
-      <div class="flex gap-2 text-2xl">
-        <a href="#"><Icon name={"mdi:facebook"} /></a>
-        <a href="#"><Icon name={"mdi:youtube"} /></a>
-        <a href="#"><Icon name={"mdi:spotify"} /></a>
-        <a href="#"><Icon name={"mdi:whatsapp"} /></a>
+      <div class="flex flex-col gap-2">
+        <h3 class="style-heading">Sundays at 10am</h3>
+        <address>
+          1679 West Main Street <br />
+          Skyline Plaza <br />
+          Albert Lea, MN 56007
+        </address>
+      </div>
+      <div class="flex flex-col gap-2">
+        <h3 class="style-heading">Contact Us</h3>
+        <address>
+          <a href="mailto:hello@sojourners.church">hello@sojourners.church</a>
+          <br />
+          (507) 552-1595
+        </address>
+        <div class="flex gap-2 text-2xl ">
+          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:facebook"} /></a>
+          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:youtube"} /></a>
+          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:spotify"} /></a>
+          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:whatsapp"} /></a>
+        </div>
       </div>
     </section>
-    <section class="flex flex-col gap-2">
-      <h2 class="style-heading">Weekly Bulletin</h2>
-      <p>
-        Sign up to stay informed and connected to Sojourners Church weekly
-        happenings.
-      </p>
-      <!-- TODO: Form -->
-      <!-- <SubscribeForm client:load /> -->
+    <section class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <h2 class="style-heading">Weekly Bulletin</h2>
+        <p>
+          Sign up to stay informed and connected to Sojourners Church weekly
+          happenings.
+        </p>
+      </div>
+      <SubscribeForm client:load {sv}/>
     </section>
 
-    <section class="flex flex-col gap-2">
-      <h2 class="style-heading">Give to Sojourners</h2>
-      <p>
-        Click below to set up a one time or recurring gift to Sojourners Church.
-      </p>
-      <Button variant="outlineFooter">Give</Button>
+    <section class="flex flex-col gap-8">
+      <div class="flex flex-col gap-2">
+        <h2 class="style-heading">Give to Sojourners</h2>
+        <p>
+          Click below to set up a one time or recurring gift to Sojourners Church.
+        </p>
+      </div>
+      <Button variant="outlineFooter" class="bg-muted">Give</Button>
     </section>
   </div>
 </footer>

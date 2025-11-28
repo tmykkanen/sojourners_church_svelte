@@ -8,7 +8,6 @@ import BaseLayout from "$layouts/BaseLayout.astro";
 // biome-ignore lint/suspicious/noExplicitAny: Not correctly detecting ZodObjectType
 const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
 
-console.log("SV in page", sv);
 ---
 <BaseLayout>
 <h1>Form Test</h1>

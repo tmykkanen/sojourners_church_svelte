@@ -7,6 +7,7 @@ import {
 
 export const formAction = {
   //...
+  // TODO: Set actual handling for newsletter subscription
   subscribeToNewsletter: defineAsfAction({
     input: zNewsletterValues,
     handler: async ({ email }, { form }) => {
