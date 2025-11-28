@@ -23,5 +23,5 @@ export const server = {
       return `You submitted ${input.email}`;
     },
   }),
-  // formAction,
+  formAction,
 };
