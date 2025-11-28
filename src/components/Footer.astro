@@ -6,12 +6,13 @@ import Button from "$components/Button.svelte";
 import SubscribeForm from "$components/SubscribeForm/SubscribeForm.svelte";
 import { zNewsletterValues } from "$components/SubscribeForm/schema";
 
-// biome-ignore lint/suspicious/noExplicitAny: Not correctly detecting ZodObjectType
+// [BUG]: Fix type mismatch
+/* eslint-disable-next-line @typescript-eslint/no-explicit-any -- type mismatch */
 const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
 ---
 
-<footer class="bg-accent text-accent-foreground layout-base py-8 ">
-  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3 ">
+<footer class="bg-accent text-accent-foreground layout-base py-8">
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
     <section class="flex flex-col gap-8">
       <h2 class="sr-only">Address & Contact Info</h2>
       <div class="flex flex-col gap-2">
@@ -29,11 +30,19 @@ const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
           <br />
           (507) 552-1595
         </address>
-        <div class="flex gap-2 text-2xl ">
-          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:facebook"} /></a>
-          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:youtube"} /></a>
-          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:spotify"} /></a>
-          <a href="#" class="text-muted hover:text-primary"><Icon name={"mdi:whatsapp"} /></a>
+        <div class="flex gap-2 text-2xl">
+          <a href="#" class="text-muted hover:text-primary"
+            ><Icon name={"mdi:facebook"} /></a
+          >
+          <a href="#" class="text-muted hover:text-primary"
+            ><Icon name={"mdi:youtube"} /></a
+          >
+          <a href="#" class="text-muted hover:text-primary"
+            ><Icon name={"mdi:spotify"} /></a
+          >
+          <a href="#" class="text-muted hover:text-primary"
+            ><Icon name={"mdi:whatsapp"} /></a
+          >
         </div>
       </div>
     </section>
@@ -45,14 +54,15 @@ const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
           happenings.
         </p>
       </div>
-      <SubscribeForm client:load {sv}/>
+      <SubscribeForm client:load {sv} />
     </section>
 
     <section class="flex flex-col gap-8">
       <div class="flex flex-col gap-2">
         <h2 class="style-heading">Give to Sojourners</h2>
         <p>
-          Click below to set up a one time or recurring gift to Sojourners Church.
+          Click below to set up a one time or recurring gift to Sojourners
+          Church.
         </p>
       </div>
       <Button variant="outlineFooter" class="bg-muted">Give</Button>
