@@ -1,0 +1,87 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { format } from "date-fns";
+
+import BaseLayout from "$layouts/BaseLayout.astro";
+import Header from "$components/Header.astro";
+import Footer from "$components/Footer.astro";
+import Button from "$components/Button.svelte";
+import SpotifyAudioEmbed from "$components/SpotifyAudioEmbed.astro";
+import SermonCard from "$components/SermonCard.svelte";
+import SermonFilter from "$components/SermonFilter.svelte";
+
+// [TODO]: Abstract these functions into util file
+// ----- GET ALL SERMON DATA ----- //
+const allSermons = (await getCollection("sermons")).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const getSermonData = (sermonData: CollectionEntry<"sermons">[]) => {
+  const promises = sermonData.map(async (sermonItem) => {
+    return {
+      ...sermonItem,
+      series: await getEntry(sermonItem.data.series),
+      preacher: await getEntry(sermonItem.data.preacher),
+    };
+  });
+  return Promise.all(promises);
+};
+
+const allSermonData = await getSermonData(allSermons);
+
+// ----- GET ALL SERMON SERIES ----- //
+const allSeriesData = (await getCollection("series")).sort(
+  (a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf(),
+);
+
+// ----- GET ALL PREACHERS ----- //
+// TODO: Sort data by number of sermons / priority?
+const allPreachersData = (await getCollection("preachers"))
+  .sort((a, b) =>
+    a.data.name.split(" ")[1].localeCompare(b.data.name.split(" ")[1]),
+  )
+  .sort((a, b) => b.data.priority - a.data.priority);
+---
+
+<BaseLayout>
+  <Header />
+  <main class="layout-base gap-8 py-8">
+    <h1 class="sr-only">Sermons</h1>
+    <section class="flex flex-col gap-2">
+      <h2 class="style-heading">Latest Sermon</h2>
+      <Button
+        variant="link"
+        href={`/sermons/${allSermonData[0].id}`}
+        class="style-subheading text-foreground hover:text-primary h-fit justify-start p-0 text-lg font-normal md:text-xl"
+      >
+        {allSermonData[0].data.title}
+      </Button>
+      <p class="style-meta">
+        {
+          format(
+            new Date(
+              allSermonData[0].data.date.valueOf() +
+                allSermonData[0].data.date.getTimezoneOffset() * 60 * 1000,
+            ),
+            "LLLL dd, yyyy",
+          )
+        } - {allSermonData[0].data.scripture} - {
+          allSermonData[0].preacher.data.name
+        }
+        <!-- [TODO]: Redo interaction with Bible Parser -->
+      </p>
+      <SpotifyAudioEmbed spotifyURL={allSermonData[0].data.spotifyURL} />
+    </section>
+
+    <section class="flex flex-col gap-2">
+      <SermonFilter client:load {allSermonData} {allSeriesData} {allPreachersData} />
+      <div class="flex flex-col gap-8 pt-8 lg:grid lg:grid-cols-2">
+        <!-- Map through sermon data -->
+        <SermonCard baseUrl="/sermons/" sermon={allSermonData[0]} />
+        <SermonCard baseUrl="/sermons/" sermon={allSermonData[1]} />
+        <SermonCard baseUrl="/sermons/" sermon={allSermonData[2]} />
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>

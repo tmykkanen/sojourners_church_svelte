@@ -160,10 +160,10 @@
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) / 4);
+  --radius-md: calc(var(--radius) / 2);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) * 1.5);
 
   --shadow-2xs: var(--shadow-2xs);
   --shadow-xs: var(--shadow-xs);
@@ -258,7 +258,7 @@
   }
 
   .style-meta {
-    @apply text-muted text-xs md:text-sm;
+    @apply text-muted-foreground text-xs md:text-sm;
   }
 
   .style-btn {
