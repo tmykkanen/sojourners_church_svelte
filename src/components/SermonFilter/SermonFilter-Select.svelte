@@ -38,7 +38,7 @@
 </script>
 
 <!-- [BUG] Add trunication for select text when too large -->
- <!-- [TODO] Switch select item bg to primary? -->
+<!-- [TODO] Switch select item bg to primary? -->
 <div class="inline-flex items-stretch">
   <p
     class="text-sm select-none bg-muted rounded-l-md px-4 py-2 border border-muted-content/20 h-full flex items-center flex-1/4 sm:flex-1 min-w-24"

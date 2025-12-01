@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Hamburger from "$components/Hamburger.svelte";
-  import NavigationMenu from "$components/NavigationMenu.svelte";
+  import Hamburger from "./Sidebar-Hamburger.svelte";
+  import NavMenu from "$components/NavMenu.svelte";
   import * as Drawer from "$lib/components/ui/drawer/index.js";
 
   let open = $state(false);
@@ -19,6 +19,6 @@
   <Drawer.Content
     class="data-[vaul-drawer-direction=right]:w-full data-[vaul-drawer-direction=right]:sm:max-w-full pt-24"
   >
-    <NavigationMenu class={"px-8 flex flex-col gap-2"} />
+    <NavMenu class={"px-8 flex flex-col gap-2"} />
   </Drawer.Content>
 </Drawer.Root>

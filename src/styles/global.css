@@ -250,7 +250,7 @@
   }
 
   .style-heading {
-    @apply text-xl uppercase md:text-2xl tracking-wider;
+    @apply text-xl tracking-wider uppercase md:text-2xl;
   }
 
   .style-subheading {
@@ -262,6 +262,6 @@
   }
 
   .style-btn {
-    @apply text-xs tracking-widest uppercase sm:text-sm whitespace-normal h-full text-center font-semibold;
+    @apply h-full text-center text-xs font-semibold tracking-widest whitespace-normal uppercase sm:text-sm;
   }
 }

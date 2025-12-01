@@ -1,14 +1,8 @@
 <script lang="ts">
   import type { CollectionEntry } from "astro:content";
   import type { SermonData } from "$lib/types";
-  import Select from "./Select.svelte";
-  import DatePicker from "./DatePicker.svelte";
-  import Input from "./Input.svelte";
-  import {
-    CalendarDate,
-    today,
-    getLocalTimeZone,
-  } from "@internationalized/date";
+  import Select from "./SermonFilter-Select.svelte";
+  import DatePicker from "./SermonFilter-DatePicker.svelte";
 
   let {
     allSermonData,

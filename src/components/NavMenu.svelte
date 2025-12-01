@@ -1,9 +1,5 @@
 <script lang="ts">
-  // import type { HTMLAttributes } from "astro/types";
-  import Button from "$components/Button.svelte";
-  import { type ButtonProps } from "$lib/components/ui/button";
-
-  // interface Props extends HTMLAttributes<"ul"> {}
+  import { Button, type ButtonProps } from "$lib/components/ui/button";
 
   const navItems = [
     { label: "About Us", url: "/about" },

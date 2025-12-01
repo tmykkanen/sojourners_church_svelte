@@ -7,6 +7,7 @@ preacher: src/content/preachers/tyler-mykkanen.md
 spotifyURL: https://open.spotify.com/episode/5tkWjVObaFr3qHWVntS86i?si=TWqL8Ia0ReWFZ72UXMMJAw
 googleDocsURL: https://drive.google.com/file/d/1gqnskJ6UtsuXgL7_KxDGHXlSmwqUj1rv/view
 ---
+
 Sermon on 1 Thessalonians 4:1-2 from ⁠Sojourners Church⁠ in Albert Lea, MN. Preached on October 26, 2025 by Pastor Tyler Mykkanen.
 
 Argument: You keep on keepin' on by keeping your eyes on Jesus.
