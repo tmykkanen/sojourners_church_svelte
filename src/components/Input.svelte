@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Input } from "$lib/components/ui/Input/index.js";
+  import { Input } from "$lib/components/ui/input/";
 
   let { ...restProps } = $props();
 </script>
