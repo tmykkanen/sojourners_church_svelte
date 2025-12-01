@@ -37,21 +37,23 @@
   );
 </script>
 
+<!-- [BUG] Add trunication for select text when too large -->
+ <!-- [TODO] Switch select item bg to primary? -->
 <div class="inline-flex items-stretch">
   <p
-    class="bg-muted rounded-l-md px-4 border border-muted-content/20 h-full flex items-center flex-1/4 sm:flex-1 min-w-24"
+    class="text-sm select-none bg-muted rounded-l-md px-4 py-2 border border-muted-content/20 h-full flex items-center flex-1/4 sm:flex-1 min-w-24"
   >
     {label}:
   </p>
   <Select.Root type="single" bind:value>
     <Select.Trigger
-      class="flex-[65%] rounded-l-none -ml-px bg-muted text-muted-foreground"
+      class="flex-[65%] rounded-l-none -ml-px bg-muted text-muted-foreground px-4 py-2 text-sm data-[size=default]:h-full"
     >
       {triggerContent}
     </Select.Trigger>
-    <Select.Content>
+    <Select.Content class="p-4">
       <Select.Group>
-        <Select.Label>Fruits</Select.Label>
+        <!-- <Select.Label>Fruits</Select.Label> -->
         {#each options as option (option.id)}
           <Select.Item value={option.id} label={option.label}>
             {option.label}

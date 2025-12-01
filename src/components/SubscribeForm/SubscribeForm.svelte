@@ -1,8 +1,10 @@
 <script lang="ts">
   import { actions } from "astro:actions";
-  import Icon from "@iconify/svelte";
-  import MailIcon from "@lucide/svelte/icons/mail";
+  import { Mail } from "@lucide/svelte";
+
+
   import { toast } from "svelte-sonner";
+
   import { type SuperValidated, superForm } from "sveltekit-superforms";
   import { zodClient } from "sveltekit-superforms/adapters";
   import {
@@ -98,7 +100,7 @@
               />
               <InputGroup.Addon>
                 <!-- <MailIcon /> -->
-                <Icon icon="mdi:email-outline" />
+                <Mail />
               </InputGroup.Addon>
             </InputGroup.Root>
             <!-- <Input {...props} type="email" bind:value={$form.email} placeholder="mail@site.com"/> -->
