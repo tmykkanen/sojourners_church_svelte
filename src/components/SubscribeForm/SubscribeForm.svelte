@@ -2,7 +2,6 @@
   import { actions } from "astro:actions";
   import { Mail } from "@lucide/svelte";
 
-
   import { toast } from "svelte-sonner";
 
   import { type SuperValidated, superForm } from "sveltekit-superforms";
@@ -112,8 +111,7 @@
     <Card.Footer class="px-0 w-full">
       <Form.Button
         disabled={$submitting}
-        class="w-full bg-muted"
-        variant="outlineFooter"
+        class="w-full bg-muted hover:bg-primary text-primary hover:text-primary-foreground border-ring border shadow-xs"
         >{$delayed ? "Subscribing..." : "Subscribe"}</Form.Button
       >
     </Card.Footer>

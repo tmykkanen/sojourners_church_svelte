@@ -65,7 +65,10 @@ const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
           Church.
         </p>
       </div>
-      <Button variant="outlineFooter" class="bg-muted">Give</Button>
+      <Button
+        class="bg-muted hover:bg-primary text-primary hover:text-primary-foreground border-ring border shadow-xs"
+        >Give</Button
+      >
     </section>
   </div>
 </footer>
