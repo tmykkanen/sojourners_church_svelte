@@ -7,8 +7,9 @@ import Header from "$components/Header.astro";
 import Footer from "$components/Footer.astro";
 import { Button } from "$lib/components/ui/button";
 import SpotifyAudioEmbed from "$components/SpotifyAudioEmbed.astro";
-import SermonCard from "$components/SermonCard.svelte";
 import SermonFilter from "$components/SermonFilter/SermonFilter.svelte";
+
+import SermonCardDisplay from "$components/SermonCards/SermonCard-Display.svelte";
 
 // [TODO]: Abstract these functions into util file
 // ----- GET ALL SERMON DATA ----- //
@@ -82,9 +83,7 @@ const allPreachersData = (await getCollection("preachers"))
       />
       <div class="flex flex-col gap-8 pt-8 lg:grid lg:grid-cols-2">
         <!-- Map through sermon data -->
-        <SermonCard baseUrl="/sermons/" sermon={allSermonData[0]} />
-        <SermonCard baseUrl="/sermons/" sermon={allSermonData[1]} />
-        <SermonCard baseUrl="/sermons/" sermon={allSermonData[2]} />
+        <SermonCardDisplay {allSermonData} client:load />
       </div>
     </section>
   </main>

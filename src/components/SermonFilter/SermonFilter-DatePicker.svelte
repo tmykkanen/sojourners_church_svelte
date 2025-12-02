@@ -20,7 +20,7 @@
     >
 
     <DatePicker.Input
-      class="h-full bg-muted text-muted-foreground focus-within:border-border-input-hover focus-within:shadow-date-field-focus hover:border-border-input-hover flex w-full select-none items-center border text-sm  flex-[65%] rounded-md rounded-l-none -ml-px px-4 py-2"
+      class="h-full bg-muted focus-within:border-border-input-hover focus-within:shadow-date-field-focus hover:border-border-input-hover flex w-full select-none items-center border text-sm  flex-[65%] rounded-md rounded-l-none -ml-px px-4 py-2"
     >
       {#snippet children({ segments })}
         {#each segments as { part, value }, i (part + i)}

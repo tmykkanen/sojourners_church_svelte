@@ -1,3 +1,7 @@
 import { atom } from "nanostores";
+import type { DateValue } from '@internationalized/date';
 
-export const isDrawerOpen = atom(false);
+export const series = atom<string | undefined>(undefined)
+export const preacher = atom<string | undefined>(undefined)
+export const from = atom<DateValue | undefined>(undefined)
+export const to = atom<DateValue | undefined>(undefined)

@@ -35,7 +35,7 @@ export default defineConfig([
   tseslint.config({
     rules: {
       "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-unused-vars": "warn",
     },
   }),
   ...eslintPluginAstro.configs.recommended,

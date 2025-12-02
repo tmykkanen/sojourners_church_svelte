@@ -185,6 +185,7 @@
 }
 
 /* CUSTOM */
+
 @layer base {
   :root {
     scrollbar-color: var(--muted-foreground) var(--muted);
