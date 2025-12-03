@@ -69,7 +69,7 @@
             />
           {/snippet}
         </Form.Control>
-        <Form.FieldErrors />
+        <Form.FieldErrors class="text-red-300 *:py-1" />
       </Form.Field>
       <Form.Field form={sf} name="lastName">
         <Form.Control>
@@ -84,13 +84,15 @@
             />
           {/snippet}
         </Form.Control>
-        <Form.FieldErrors />
+        <Form.FieldErrors class="text-red-300 *:pt-1" />
       </Form.Field>
       <Form.Field form={sf} name="email">
         <Form.Control>
           {#snippet children({ props })}
             <!-- <Form.Label>Email</Form.Label> -->
-            <InputGroup.Root class="bg-muted text-muted-foreground mb-0">
+            <InputGroup.Root
+              class="bg-muted text-muted-foreground mb-0 aria-invalid:border-red-400"
+            >
               <InputGroup.Input
                 {...props}
                 type="email"
@@ -105,7 +107,7 @@
             <!-- <Input {...props} type="email" bind:value={$form.email} placeholder="mail@site.com"/> -->
           {/snippet}
         </Form.Control>
-        <Form.FieldErrors />
+        <Form.FieldErrors class="text-red-300 *:pt-1" />
       </Form.Field>
     </Card.Content>
     <Card.Footer class="px-0 w-full">
@@ -118,3 +120,9 @@
   </form>
 </Card.Root>
 <Toaster />
+
+<style>
+    [data-fs-field-error] {
+        color: greenyellow
+    }
+</style>
