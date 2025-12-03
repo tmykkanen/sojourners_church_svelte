@@ -6,7 +6,7 @@ import { defineConfig } from "astro/config";
 
 import icon from "astro-icon";
 
-import superforms from "astro-superforms";
+import superforms from "@tmykkanen/astro-superforms-custom-pkg";
 
 // https://astro.build/config
 export default defineConfig({
