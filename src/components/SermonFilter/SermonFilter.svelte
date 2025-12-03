@@ -1,33 +1,33 @@
 <script lang="ts">
-  import type { CollectionEntry } from "astro:content";
-  import type { SermonData, SeriesData, PreacherData } from "$lib/types";
-  import Select from "./SermonFilter-Select.svelte";
-  import DatePicker from "./SermonFilter-DatePicker.svelte";
-  import { series, preacher, from, to } from "$lib/nanostores";
-  import { type DateValue } from "@internationalized/date";
-  import { Undo2 } from "@lucide/svelte";
-  import Button from "$lib/components/ui/button/button.svelte";
+import type { CollectionEntry } from "astro:content";
+import { type DateValue } from "@internationalized/date";
+import { Undo2 } from "@lucide/svelte";
+import Button from "$lib/components/ui/button/button.svelte";
+import { from, preacher, series, to } from "$lib/nanostores";
+import type { PreacherData, SeriesData, SermonData } from "$lib/types";
+import DatePicker from "./SermonFilter-DatePicker.svelte";
+import Select from "./SermonFilter-Select.svelte";
 
-  let {
-    allSermonData,
-    allSeriesData,
-    allPreachersData,
-  }: {
-    allSermonData: SermonData[];
-    allSeriesData: SeriesData[];
-    allPreachersData: PreacherData[];
-  } = $props();
+let {
+  allSermonData,
+  allSeriesData,
+  allPreachersData,
+}: {
+  allSermonData: SermonData[];
+  allSeriesData: SeriesData[];
+  allPreachersData: PreacherData[];
+} = $props();
 
-  const selectedSeries = $derived(
-    allSeriesData.find((item) => item.id === $series),
-  );
+const selectedSeries = $derived(
+  allSeriesData.find((item) => item.id === $series),
+);
 
-  const resetFilters = () => {
-    series.set(undefined);
-    preacher.set(undefined);
-    from.set(undefined);
-    to.set(undefined);
-  };
+const resetFilters = () => {
+  series.set(undefined);
+  preacher.set(undefined);
+  from.set(undefined);
+  to.set(undefined);
+};
 </script>
 
 <h2 class="style-heading">

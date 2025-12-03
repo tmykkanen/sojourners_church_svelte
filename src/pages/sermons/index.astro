@@ -1,15 +1,13 @@
 ---
-import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
 import { format } from "date-fns";
-
-import BaseLayout from "$layouts/BaseLayout.astro";
-import Header from "$components/Header.astro";
 import Footer from "$components/Footer.astro";
-import { Button } from "$lib/components/ui/button";
-import SpotifyAudioEmbed from "$components/SpotifyAudioEmbed.astro";
-import SermonFilter from "$components/SermonFilter/SermonFilter.svelte";
-
+import Header from "$components/Header.astro";
 import SermonCardDisplay from "$components/SermonCards/SermonCard-Display.svelte";
+import SermonFilter from "$components/SermonFilter/SermonFilter.svelte";
+import SpotifyAudioEmbed from "$components/SpotifyAudioEmbed.astro";
+import BaseLayout from "$layouts/BaseLayout.astro";
+import { Button } from "$lib/components/ui/button";
 
 // [TODO]: Abstract these functions into util file
 // ----- GET ALL SERMON DATA ----- //

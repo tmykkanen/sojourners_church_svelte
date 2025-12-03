@@ -6,9 +6,9 @@ import {
 } from "$components/SubscribeForm/schema";
 
 export const formAction = {
-  // TODO: Set actual handling for newsletter subscription
   subscribeToNewsletter: defineAsfAction({
     input: zNewsletterValues,
+    // TODO: Set actual handling for newsletter subscription
     handler: async ({ email }, { form }) => {
       await new Promise((resolve) => setTimeout(resolve, 2000));
       const response = Math.random();

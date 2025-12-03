@@ -1,36 +1,34 @@
 <script lang="ts">
-  import * as Select from "$lib/components/ui/select/index.js";
-  import { type SeriesData, type PreacherData, isSeries } from "$lib/types";
+import * as Select from "$lib/components/ui/select/index.js";
+import { isSeries, type PreacherData, type SeriesData } from "$lib/types";
 
-  let {
-    data,
-    value = $bindable(),
-    label,
-    ...restProps
-  }: {
-    data: SeriesData[] | PreacherData[];
-    value: string | undefined;
-    label: "Series" | "Preacher";
-  } = $props();
+let {
+  data,
+  value = $bindable(),
+  label,
+  ...restProps
+}: {
+  data: SeriesData[] | PreacherData[];
+  value: string | undefined;
+  label: "Series" | "Preacher";
+} = $props();
 
-  // Helper function for type narrowing
-  // function isSeries(data: SeriesData[] | PreacherData[]): data is SeriesData[] {
-  //   return (data[0] as SeriesData).data.title !== undefined;
-  // }
+// Helper function for type narrowing
+// function isSeries(data: SeriesData[] | PreacherData[]): data is SeriesData[] {
+//   return (data[0] as SeriesData).data.title !== undefined;
+// }
 
-  const triggerContent = $derived.by(() => {
-    if (isSeries(data)) {
-      return (
-        data.find((item) => item.id === value)?.data.title ??
-        `Filter by ${label}`
-      );
-    } else {
-      return (
-        data.find((item) => item.id === value)?.data.name ??
-        `Filter by ${label}`
-      );
-    }
-  });
+const triggerContent = $derived.by(() => {
+  if (isSeries(data)) {
+    return (
+      data.find((item) => item.id === value)?.data.title ?? `Filter by ${label}`
+    );
+  } else {
+    return (
+      data.find((item) => item.id === value)?.data.name ?? `Filter by ${label}`
+    );
+  }
+});
 </script>
 
 <!-- [BUG] Add trunication for select text when too large -->

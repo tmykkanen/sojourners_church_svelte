@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { Button, type ButtonProps } from "$lib/components/ui/button";
+import { Button, type ButtonProps } from "$lib/components/ui/button";
 
-  const navItems = [
-    { label: "About Us", url: "/about" },
-    { label: "Life Together", url: "/life" },
-    { label: "Sermons", url: "/sermons" },
-    { label: "Writings", url: "/writings" },
-    { label: "What is the Gospel?", url: "/gospel", variant: "secondary" },
-  ];
+const navItems = [
+  { label: "About Us", url: "/about" },
+  { label: "Life Together", url: "/life" },
+  { label: "Sermons", url: "/sermons" },
+  { label: "Writings", url: "/writings" },
+  { label: "What is the Gospel?", url: "/gospel", variant: "secondary" },
+];
 
-  const { ...attrs } = $props();
+const { ...attrs } = $props();
 </script>
 
 <ul {...attrs}>

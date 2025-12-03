@@ -1,43 +1,44 @@
 <script lang="ts">
-  import { actions } from "astro:actions";
-  import { Mail } from "@lucide/svelte";
+import { actions } from "astro:actions";
+import { Mail } from "@lucide/svelte";
 
-  import { toast } from "svelte-sonner";
+import { toast } from "svelte-sonner";
 
-  import { type SuperValidated, superForm } from "sveltekit-superforms";
-  import { zodClient } from "sveltekit-superforms/adapters";
-  import {
-    type Message,
-    type NewsletterValues,
-    zNewsletterValues,
-  } from "$components/SubscribeForm/schema";
-  import * as Card from "$lib/components/ui/card";
-  import * as Form from "$lib/components/ui/form";
-  import { Input } from "$lib/components/ui/input";
-  import * as InputGroup from "$lib/components/ui/input-group";
-  import { Toaster } from "$lib/components/ui/sonner";
+import { type SuperValidated, superForm } from "sveltekit-superforms";
+import { zodClient } from "sveltekit-superforms/adapters";
+import {
+  type Message,
+  type NewsletterValues,
+  zNewsletterValues,
+} from "$components/SubscribeForm/schema";
+import * as Card from "$lib/components/ui/card";
+import * as Form from "$lib/components/ui/form";
+import { Input } from "$lib/components/ui/input";
+import * as InputGroup from "$lib/components/ui/input-group";
+import { Toaster } from "$lib/components/ui/sonner";
 
-  let { sv }: { sv: SuperValidated<NewsletterValues, Message> } = $props();
+let { sv }: { sv: SuperValidated<NewsletterValues, Message> } = $props();
 
-  const sf = superForm(sv, {
-    validators: zodClient(zNewsletterValues as any),
-    onError: () => {
-      toast.error(i18n());
-    },
-    onUpdated: ({ form: { message, valid } }) => {
-      if (message)
-        valid ? toast.success(i18n(message)) : toast.error(i18n(message));
-    },
-  });
-  const { delayed, enhance, form, submitting } = sf;
+const sf = superForm(sv, {
+  // FIX: Hack using any
+  validators: zodClient(zNewsletterValues as any),
+  onError: () => {
+    toast.error(i18n());
+  },
+  onUpdated: ({ form: { message, valid } }) => {
+    if (message)
+      valid ? toast.success(i18n(message)) : toast.error(i18n(message));
+  },
+});
+const { delayed, enhance, form, submitting } = sf;
 
-  function i18n(code?: Message) {
-    if (code === "BAD_REQUEST")
-      return "An error occurred. Please try again later.";
-    if (code === "CONFLICT") return "You are already subscribed.";
-    if (code === "SUCCESS") return "Successfully subscribed.";
+function i18n(code?: Message) {
+  if (code === "BAD_REQUEST")
     return "An error occurred. Please try again later.";
-  }
+  if (code === "CONFLICT") return "You are already subscribed.";
+  if (code === "SUCCESS") return "Successfully subscribed.";
+  return "An error occurred. Please try again later.";
+}
 </script>
 
 <Card.Root class="w-full py-0 bg-accent border-none shadow-none">
@@ -120,9 +121,3 @@
   </form>
 </Card.Root>
 <Toaster />
-
-<style>
-    [data-fs-field-error] {
-        color: greenyellow
-    }
-</style>

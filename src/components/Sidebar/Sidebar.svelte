@@ -1,9 +1,9 @@
 <script lang="ts">
-  import Hamburger from "./Sidebar-Hamburger.svelte";
-  import NavMenu from "$components/NavMenu.svelte";
-  import * as Drawer from "$lib/components/ui/drawer/index.js";
+import NavMenu from "$components/NavMenu.svelte";
+import * as Drawer from "$lib/components/ui/drawer/index.js";
+import Hamburger from "./Sidebar-Hamburger.svelte";
 
-  let open = $state(false);
+let open = $state(false);
 </script>
 
 <Hamburger

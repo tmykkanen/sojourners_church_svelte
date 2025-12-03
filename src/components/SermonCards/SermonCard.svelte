@@ -1,19 +1,19 @@
 <script lang="ts">
-  import { format } from "date-fns";
-  import * as Card from "$lib/components/ui/card";
+import { format } from "date-fns";
+import * as Card from "$lib/components/ui/card";
 
-  const { baseUrl, sermon } = $props();
+const { baseUrl, sermon } = $props();
 
-  const {
-    id,
-    data: { title, date, scripture },
-    series: {
-      data: { imageSquare },
-    },
-    preacher: {
-      data: { name },
-    },
-  } = sermon;
+const {
+  id,
+  data: { title, date, scripture },
+  series: {
+    data: { imageSquare },
+  },
+  preacher: {
+    data: { name },
+  },
+} = sermon;
 </script>
 
 <Card.Root class="py-0 border-none rounded-sm shadow-sm bg-muted">

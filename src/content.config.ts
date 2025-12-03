@@ -1,5 +1,5 @@
+import { defineCollection, reference, z } from "astro:content";
 import { glob } from "astro/loaders";
-import { z, defineCollection, reference } from "astro:content";
 
 const getSlugFromFilename = (val: string): string => {
   const regexRes = val?.match(/([^/?#]+)$/g);

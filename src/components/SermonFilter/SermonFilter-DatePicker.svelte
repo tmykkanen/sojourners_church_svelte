@@ -1,15 +1,15 @@
 <script lang="ts">
-  import { DatePicker } from "bits-ui";
-  import { type DatePickerRootProps } from "bits-ui";
-  import { Calendar, ChevronLeft, ChevronRight } from "@lucide/svelte";
-  // import CalendarBlank from "phosphor-svelte/lib/CalendarBlank";
-  // import CaretLeft from "phosphor-svelte/lib/CaretLeft";
-  // import CaretRight from "phosphor-svelte/lib/CaretRight";
-  interface Props extends DatePickerRootProps {
-    label: string;
-  }
+import { Calendar, ChevronLeft, ChevronRight } from "@lucide/svelte";
+import { DatePicker, type DatePickerRootProps } from "bits-ui";
 
-  let { label, value = $bindable(), ...restProps }: Props = $props();
+// import CalendarBlank from "phosphor-svelte/lib/CalendarBlank";
+// import CaretLeft from "phosphor-svelte/lib/CaretLeft";
+// import CaretRight from "phosphor-svelte/lib/CaretRight";
+interface Props extends DatePickerRootProps {
+  label: string;
+}
+
+let { label, value = $bindable(), ...restProps }: Props = $props();
 </script>
 
 <DatePicker.Root weekdayFormat="short" fixedWeeks={true} bind:value>

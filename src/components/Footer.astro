@@ -2,12 +2,11 @@
 import { Icon } from "astro-icon/components";
 import { superValidate } from "sveltekit-superforms";
 import { zod } from "sveltekit-superforms/adapters";
-import { Button } from "$lib/components/ui/button";
 import SubscribeForm from "$components/SubscribeForm/SubscribeForm.svelte";
 import { zNewsletterValues } from "$components/SubscribeForm/schema";
+import { Button } from "$lib/components/ui/button";
 
-// [BUG]: Fix type mismatch
-/* eslint-disable-next-line @typescript-eslint/no-explicit-any -- type mismatch */
+// FIX: Hack using any
 const sv = await superValidate(Astro.request, zod(zNewsletterValues as any));
 ---
 
