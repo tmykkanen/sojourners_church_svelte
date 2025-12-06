@@ -26,11 +26,6 @@
       "quoteStyle": "double"
     }
   },
-  "css": {
-    "parser": {
-      "tailwindDirectives": true
-    }
-  },
   "assist": {
     "enabled": true,
     "actions": {
@@ -55,5 +50,10 @@
         }
       }
     }
-  ]
+  ],
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  }
 }
