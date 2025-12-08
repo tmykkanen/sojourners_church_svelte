@@ -2,6 +2,7 @@
 import type { CollectionEntry } from "astro:content";
 import { type DateValue } from "@internationalized/date";
 import { Undo2 } from "@lucide/svelte";
+import Text from "$components/Text.svelte";
 import Button from "$lib/components/ui/button/button.svelte";
 import { from, preacher, series, to } from "$lib/nanostores";
 import type { PreacherData, SeriesData, SermonData } from "$lib/types";
@@ -30,11 +31,12 @@ const resetFilters = () => {
 };
 </script>
 
-<h2 class="style-heading">
+<Text as="h2" variant="heading">
   {selectedSeries
     ? `Sermons from ${selectedSeries?.data.title}`
     : "All Sermons"}
-</h2>
+</Text>
+
 {#if $series || $preacher || $from || $to}
   <Button
     variant="link"

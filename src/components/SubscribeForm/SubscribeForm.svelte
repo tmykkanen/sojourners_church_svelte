@@ -49,18 +49,10 @@ function i18n(code?: Message) {
     novalidate
     class="flex flex-col gap-2"
   >
-    <!-- <Card.Header>
-      <Card.Title>Weekly Bulletin</Card.Title>
-      <Card.Description
-        >Sign up to stay informed and connected to Sojourners Church weekly
-        happenings.</Card.Description
-      >
-    </Card.Header> -->
     <Card.Content class="gap-2 flex flex-col px-0">
       <Form.Field form={sf} name="firstName">
         <Form.Control>
           {#snippet children({ props })}
-            <!-- <Form.Label>First Name</Form.Label> -->
             <Input
               {...props}
               type="text"
@@ -75,7 +67,6 @@ function i18n(code?: Message) {
       <Form.Field form={sf} name="lastName">
         <Form.Control>
           {#snippet children({ props })}
-            <!-- <Form.Label>Last Name</Form.Label> -->
             <Input
               {...props}
               type="text"
@@ -90,7 +81,6 @@ function i18n(code?: Message) {
       <Form.Field form={sf} name="email">
         <Form.Control>
           {#snippet children({ props })}
-            <!-- <Form.Label>Email</Form.Label> -->
             <InputGroup.Root
               class="bg-muted text-muted-foreground mb-0 aria-invalid:border-red-400"
             >
@@ -105,7 +95,6 @@ function i18n(code?: Message) {
                 <Mail />
               </InputGroup.Addon>
             </InputGroup.Root>
-            <!-- <Input {...props} type="email" bind:value={$form.email} placeholder="mail@site.com"/> -->
           {/snippet}
         </Form.Control>
         <Form.FieldErrors class="text-red-300 *:pt-1" />
@@ -114,7 +103,8 @@ function i18n(code?: Message) {
     <Card.Footer class="px-0 w-full">
       <Form.Button
         disabled={$submitting}
-        class="w-full bg-muted hover:bg-primary text-primary hover:text-primary-foreground border-ring border shadow-xs"
+        class="w-full"
+        variant="footer-button"
         >{$delayed ? "Subscribing..." : "Subscribe"}</Form.Button
       >
     </Card.Footer>

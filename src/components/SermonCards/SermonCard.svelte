@@ -1,5 +1,6 @@
 <script lang="ts">
 import { format } from "date-fns";
+import Text from "$components/Text.svelte";
 import * as Card from "$lib/components/ui/card";
 
 const { baseUrl, sermon } = $props();
@@ -25,8 +26,8 @@ const {
         class="h-full rounded-l-sm max-sm:flex-1/3"
       />
       <div class="xs:p-4 flex flex-2/3 flex-col justify-center p-2 sm:p-8">
-        <h3 class="style-subheading">{title}</h3>
-        <p class="style-meta">
+        <Text as="h3" variant="subheading">{title}</Text>
+        <Text as="span" variant="meta">
           {format(
             new Date(date.valueOf() + date.getTimezoneOffset() * 60 * 1000),
             "LLLL dd, yyyy",
@@ -35,7 +36,7 @@ const {
           {scripture}
           <br />
           {name}
-        </p>
+        </Text>
       </div>
     </a>
   </Card.Content>

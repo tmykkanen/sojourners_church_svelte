@@ -17,7 +17,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "@tmykkanen/astro-superforms-custom-pkg": "1.0.0",
     "@types/mailchimp__mailchimp_marketing": "^3.0.22",
-    "astro": "^5.16.2",
+    "astro": "^5.16.4",
     "astro-icon": "^1.1.5",
     "devalue": "^5.5.0",
     "nanostores": "^1.1.0",

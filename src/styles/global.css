@@ -241,28 +241,21 @@
   }
 }
 
-@layer components {
-  .style-display-xl {
-    @apply text-5xl font-bold uppercase sm:text-7xl;
-  }
+/* Sensible defaults for list styling */
+ol {
+  counter-reset: counter;
+}
 
-  .style-display {
-    @apply text-xl font-bold uppercase md:text-2xl;
-  }
+ol li {
+  counter-increment: counter;
+  padding-block: 0.5rem;
+  /* color: color-mix(in srgb, var(--color-base-content), transparent 50%); */
+  display: flex;
+  gap: var(--spacing);
+}
 
-  .style-heading {
-    @apply text-xl tracking-wider uppercase md:text-2xl;
-  }
-
-  .style-subheading {
-    @apply text-lg md:text-xl;
-  }
-
-  .style-meta {
-    @apply text-muted-foreground text-xs md:text-sm;
-  }
-
-  .style-btn {
-    @apply h-full text-center text-xs font-semibold tracking-widest whitespace-normal uppercase sm:text-sm;
-  }
+ol li::before {
+  content: counter(counter) ". ";
+  color: var(--color-primary);
+  /* font-weight: bold; */
 }

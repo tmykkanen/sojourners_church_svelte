@@ -6,6 +6,7 @@ import Header from "$components/Header.astro";
 import SermonCardDisplay from "$components/SermonCards/SermonCard-Display.svelte";
 import SermonFilter from "$components/SermonFilter/SermonFilter.svelte";
 import SpotifyAudioEmbed from "$components/SpotifyAudioEmbed.astro";
+import Text from "$components/Text.svelte";
 import BaseLayout from "$layouts/BaseLayout.astro";
 import { Button } from "$lib/components/ui/button";
 
@@ -47,15 +48,17 @@ const allPreachersData = (await getCollection("preachers"))
   <main class="layout-base gap-8 py-8">
     <h1 class="sr-only">Sermons</h1>
     <section class="flex flex-col gap-2">
-      <h2 class="style-heading">Latest Sermon</h2>
+      <Text as="h2" variant="heading">Latest Sermon</Text>
       <Button
         variant="link"
         href={`/sermons/${allSermonData[0].id}`}
-        class="style-subheading text-foreground hover:text-primary h-fit justify-start p-0 text-lg font-normal md:text-xl"
+        class="hover:text-primary h-fit justify-start p-0"
       >
-        {allSermonData[0].data.title}
+        <Text as="span" variant="subheading">
+          {allSermonData[0].data.title}
+        </Text>
       </Button>
-      <p class="style-meta">
+      <Text as="span" variant="meta">
         {
           format(
             new Date(
@@ -68,7 +71,7 @@ const allPreachersData = (await getCollection("preachers"))
           allSermonData[0].preacher.data.name
         }
         <!-- [TODO]: Redo interaction with Bible Parser -->
-      </p>
+      </Text>
       <SpotifyAudioEmbed spotifyURL={allSermonData[0].data.spotifyURL} />
     </section>
 
